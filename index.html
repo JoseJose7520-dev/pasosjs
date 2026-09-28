@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PasosJS - Un paso a la vez</title>
+    <link rel="stylesheet" href="css/componente.css">
+</head>
+<body>
+    <div class="tarjeta">
+        <h1>Crea tu cuenta</h1>
+        <p class="subtitulo">Sin prisas: un paso a la vez.</p>
+
+        <form id="registro" novalidate>
+            <fieldset data-paso="Sobre ti">
+                <label for="nombre">¿Cómo te llamas?</label>
+                <input type="text" id="nombre" name="nombre" required
+                       data-validar="soloLetras" data-error="Solo letras, por favor">
+
+                <label for="fecha">¿Cuándo naciste?</label>
+                <input type="date" id="fecha" name="fecha" required
+                       data-validar="esMayorDeEdad" data-error="Necesitas ser mayor de edad">
+            </fieldset>
+
+            <fieldset data-paso="Contacto">
+                <label for="correo">Tu correo</label>
+                <input type="email" id="correo" name="correo" required
+                       data-validar="validarCorreo" data-error="Ejemplo: nombre@correo.com">
+
+                <label for="telefono">Tu teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required
+                       data-validar="formatearTelefono" data-error="Debe tener 10 dígitos">
+            </fieldset>
+
+            <fieldset data-paso="Documentos">
+                <label for="curp">Tu CURP</label>
+                <input type="text" id="curp" name="curp" maxlength="18" required
+                       data-validar="validarCURP" data-error="Esa CURP no es válida">
+
+                <label for="cp">Código postal</label>
+                <input type="text" id="cp" name="cp" maxlength="5" required
+                       data-validar="validarCodigoPostal" data-error="Son 5 números">
+            </fieldset>
+        </form>
+    </div>
+
+    <footer>Reborn - Oaxaca</footer>
+
+    <!-- Mis validaciones (actividad anterior) -->
+    <script src="https://cdn.jsdelivr.net/gh/JoseJose7520-dev/utileria@v1.1.1/js/utileria.min.js"></script>
+    <!-- El componente -->
+    <script src="js/componente.js"></script>
+    <script>
+        crearPasos("#registro", {
+            mensajeFinal: "¡Bienvenido! Tu cuenta está lista."
+        });
+    </script>
+</body>
+</html>
